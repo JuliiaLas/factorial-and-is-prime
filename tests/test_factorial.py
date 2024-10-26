@@ -47,6 +47,12 @@ def test_math_operations_values(value):
     factorial(value)
 
 
+# Тест со значением n == 30.0:
+@pytest.mark.positive
+def test_dot_null_value():
+    factorial(30.0)
+
+
 
 # NEGATIVE
 
@@ -121,3 +127,10 @@ def test_div_rem_value():
     with pytest.raises(RecursionError) as exception:
         factorial(100/3)
     assert "maximum recursion depth exceeded" in str(exception.value)
+
+# Тест на ввод двух аргументов:
+@pytest.mark.negative
+def test_div_rem_value():
+    with pytest.raises(TypeError) as exception:
+        factorial(4, '4')
+    assert "factorial() takes 1 positional argument but 2 were given" in str(exception.value)
