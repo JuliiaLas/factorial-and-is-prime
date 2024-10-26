@@ -1,0 +1,1 @@
+from src.is_prime import is_prime
